@@ -11,7 +11,8 @@ jobs:
           command: sudo npm install -g markdown-link-check
       - run:
           name: Run Markdown-Link-Check
-          command: find . -name \*.md | xargs --max-lines=1 markdown-link-check -c config.json
+          command: find -type f -regextype posix-basic -regex "./doc.*md" | xargs --max-lines=1 markdown-link-check
+
 
 workflows:
   workflow:
